@@ -1,0 +1,556 @@
+<!-- Bootstrap 5 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- CSS Internal Styles -->
+<style>
+    :root {
+        --bg-dark: #07080b;
+        --card-bg: #0f1117;
+        --card-hover-border: #2e263d;
+        --border-color: #1a1d26;
+        --pink-gradient: linear-gradient(135deg, #e855de 0%, #8f54f7 100%);
+        --pink-color: #e855de;
+        --purple-icon-bg: #1e1528;
+        --text-white: #ffffff;
+        --text-muted: #808797;
+        --input-bg: #14161f;
+    }
+
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-white);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #1c1f2b; border-radius: 4px; }
+
+    .text-gradient {
+        background: var(--pink-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-tag, .sub-badge {
+        color: var(--pink-color);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-mini-label {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        color: var(--text-muted);
+        font-weight: 700;
+    }
+
+    .fs-7 { font-size: 0.85rem; }
+    .fs-8 { font-size: 0.75rem; }
+    .py-6 { padding-top: 5rem; padding-bottom: 5rem; }
+
+    .custom-navbar {
+        background-color: rgba(7, 8, 11, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-link {
+        color: var(--text-muted) !important;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--text-white) !important;
+    }
+
+    .btn-gradient {
+        background: var(--pink-gradient);
+        color: var(--text-white);
+        border: none;
+        font-weight: 600;
+        padding: 0.65rem 1.6rem;
+        border-radius: 10px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gradient:hover {
+        color: var(--text-white);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(232, 85, 222, 0.35);
+    }
+
+    .btn-outline-custom {
+        background: transparent;
+        color: var(--text-white);
+        border: 1px solid var(--border-color);
+        font-weight: 600;
+        padding: 0.65rem 1.6rem;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .btn-outline-custom:hover {
+        background: #14161f;
+        color: var(--text-white);
+        border-color: #2a2e3d;
+    }
+
+    .custom-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-section {
+        min-height: 100vh;
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+        line-height: 1.15;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+        color: var(--text-muted);
+    }
+
+    .profile-frame {
+        width: 290px;
+        height: 350px;
+        border: 2px solid var(--pink-color);
+        border-radius: 42px;
+        padding: 10px;
+        position: relative;
+        box-shadow: 0 0 40px rgba(232, 85, 222, 0.2);
+    }
+
+    .profile-img-holder {
+        width: 100%;
+        height: 100%;
+        background-color: #13151f;
+        border-radius: 32px;
+    }
+
+    .
+floating-badge {
+        position: absolute;
+        top: 20px;
+        left: 0px;
+        background-color: rgba(15, 17, 23, 0.95);
+        border: 1px solid var(--border-color);
+        padding: 8px 14px;
+        border-radius: 12px;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+    }
+
+    .badge-icon, .icon-box, .skill-badge {
+        width: 40px;
+        height: 40px;
+        background: var(--purple-icon-bg);
+        color: var(--pink-color);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quote-icon {
+        font-size: 2.2rem;
+        color: var(--pink-color);
+    }
+
+    .custom-progress {
+        height: 4px;
+        background-color: #1a1d29;
+        border-radius: 2px;
+    }
+
+    .custom-progress .progress-bar {
+        background: var(--pink-gradient);
+    }
+
+    .project-preview-box {
+        width: 100%;
+        height: 140px;
+        background: #13151e;
+        border-radius: 12px;
+        border: 1px dashed #242838;
+    }
+
+    .tag-badge {
+        background: #161824;
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+    }
+
+    .custom-input {
+        background-color: var(--input-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-white);
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+    }
+
+    .custom-input:focus {
+        background-color: var(--input-bg);
+        border-color: var(--pink-color);
+        color: var(--text-white);
+        box-shadow: 0 0 10px rgba(232, 85, 222, 0.2);
+    }
+
+    .custom-input::placeholder {
+        color: #4a5163;
+        font-size: 0.9rem;
+    }
+</style>
+<!-- Header / Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="#">shaza<span class="text-gradient">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto gap-3">
+                <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 01 HERO SECTION -->
+<section id="hero" class="hero-section d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <span class="sub-badge text-uppercase">FINAL-YEAR STUDENT • INFORMATION SYSTEMS</span>
+                <h1 class="hero-title fw-bold mb-4">
+                    Hi, I'm <span class="text-gradient">Shaza Mohamed</span><br>
+                    building my future in technology.
+                </h1>
+                <p class="hero-desc mb-4">
+                    I'm Shaza Mohamed Abdel Fattah Ahmed, a final-year Information Systems student. I'm passionate about technology, creative problem-solving, and turning ideas into useful digital experiences.
+                </p>
+                <div class="d-flex gap-3 align-items-center">
+                    <a href="#projects" class="btn btn-gradient btn-lg">Explore my work <i class="fa-solid fa-chevron-down ms-1 fs-6"></i></a>
+                    <a href="#contact" class="btn btn-outline-custom btn-lg">Get in touch</a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center mt-5 mt-lg-0 position-relative">
+                <div class="floating-badge d-flex align-items-center gap-2">
+<div class="badge-icon"><i class="fa-solid fa-sparkles text-gradient"></i></div>
+                    <div class="text-start">
+                        <h6 class="mb-0 fw-bold fs-7">Curious mind</h6>
+                        <small class="text-muted fs-8">Always learning</small>
+                    </div>
+                </div>
+                <div class="profile-frame mx-auto">
+                    <div class="profile-img-holder overflow-hidden">
+        <img src="profile.png.jpg" alt="Shaza Mohamed" class="w-100 h-100 object-fit-cover">
+                        <i class="fa-solid fa-user-graduate display-1 text-secondary opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 02 ABOUT SECTION -->
+<section id="about" class="py-6">
+    <div class="container">
+        <span class="section-tag text-uppercase">— A LITTLE ABOUT ME</span>
+        <div class="row mb-5 align-items-end">
+            <div class="col-lg-7">
+                <h2 class="fw-bold display-5">
+                    More than a student.<br>
+                    <span class="text-gradient">A work in progress.</span>
+                </h2>
+            </div>
+            <div class="col-lg-5">
+                <p class="text-secondary mb-0 fs-6">
+                    I'm building a strong foundation in information systems while exploring how technology solves real-world problems.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="custom-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <i class="fa-solid fa-quote-left quote-icon mb-4"></i>
+                    <p class="quote-text fs-4 fw-medium mb-4">
+                        I believe every great skill starts with curiosity, practice, and the courage to try something new.
+                    </p>
+                    <span class="text-gradient fw-bold">— Shaza</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="d-flex flex-column gap-3">
+                    <div class="custom-card p-3 d-flex align-items-center gap-3">
+                        <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <span class="card-mini-label text-uppercase">EDUCATION</span>
+                            <h6 class="mb-0 fw-bold text-white">Delta Higher Institute</h6>
+                            <small class="text-secondary">Information Systems</small>
+                        </div>
+                    </div>
+
+                    <div class="custom-card p-3 d-flex align-items-center gap-3">
+                        <div class="icon-box"><i class="fa-solid fa-circle-dot"></i></div>
+                        <div>
+                            <span class="card-mini-label text-uppercase">ACADEMIC STATUS</span>
+                            <h6 class="mb-0 fw-bold text-white">Final Year Student</h6>
+                            <small class="text-secondary">Preparing for the next chapter</small>
+                        </div>
+                    </div>
+
+                    <div class="custom-card p-3 d-flex align-items-center gap-3">
+                        <div class="icon-box"><i class="fa-solid fa-asterisk"></i></div>
+                        <div>
+                            <span class="card-mini-label text-uppercase">INTERESTS</span>
+                            <h6 class="mb-0 fw-bold text-white">Technology • Design • Problem Solving</h6>
+                            <small class="text-secondary">Learning by building and exploring</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 03 SKILLS SECTION -->
+<section id="skills" class="py-6">
+    <div class="container">
+        <span class="section-tag text-uppercase">— WHAT I'M LEARNING</span>
+        <div class="row mb-5 align-items-end">
+            <div class="col-lg-7">
+<h2 class="fw-bold display-5">
+                    Tools for my<br>
+                    <span class="text-gradient">next big idea.</span>
+                </h2>
+            </div>
+            <div class="col-lg-5">
+                <p class="text-secondary mb-0">
+                    A growing toolkit for creating interfaces and presenting digital work. Building my technical skills day by day.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3">H</div>
+                    <h5 class="fw-bold text-white">HTML & CSS</h5>
+                    <p class="text-secondary fs-7 mb-4">Structuring pages and styling clean, responsive layouts.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-75" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3">B</div>
+                    <h5 class="fw-bold text-white">Bootstrap</h5>
+                    <p class="text-secondary fs-7 mb-4">Building responsive interfaces with reusable components.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-85" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3">JS</div>
+                    <h5 class="fw-bold text-white">JavaScript</h5>
+                    <p class="text-secondary fs-7 mb-4">Exploring interactivity and browser basics.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-50" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3">DB</div>
+                    <h5 class="fw-bold text-white">Databases</h5>
+                    <p class="text-secondary fs-7 mb-4">Organizing information and learning data fundamentals.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-70" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3"><i class="fa-solid fa-code"></i></div>
+                    <h5 class="fw-bold text-white">Problem Solving</h5>
+                    <p class="text-secondary fs-7 mb-4">Breaking a challenge into smaller, manageable steps.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-65" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-4">
+                    <div class="skill-badge mb-3"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h5 class="fw-bold text-white">Communication</h5>
+                    <p class="text-secondary fs-7 mb-4">Presenting ideas clearly and working with teams.</p>
+                    <div class="progress custom-progress">
+                        <div class="progress-bar w-80" role="progressbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 04 PROJECTS SECTION -->
+<section id="projects" class="py-6">
+    <div class="container">
+        <span class="section-tag text-uppercase">— SELECTED WORK</span>
+        <div class="row mb-5 align-items-end">
+            <div class="col-lg-7">
+<h2 class="fw-bold display-5">
+                    Small steps.<br>
+                    <span class="text-gradient">Real progress.</span>
+                </h2>
+            </div>
+            <div class="col-lg-5">
+                <p class="text-secondary mb-0">
+                    A place to showcase course projects, UI concepts, and future ideas as they come to life.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-preview-box mb-3 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-laptop-code fs-1 text-secondary"></i>
+                        </div>
+                        <span class="card-mini-label">01 / WEB DESIGN</span>
+                        <h5 class="fw-bold text-white mt-1">Personal Portfolio</h5>
+                        <p class="text-secondary fs-7">A responsive website introducing my background, skills, and learning journey.</p>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <span class="tag-badge">HTML</span>
+                        <span class="tag-badge">CSS</span>
+                        <span class="tag-badge">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-preview-box mb-3 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-chart-column fs-1 text-secondary"></i>
+                        </div>
+                        <span class="card-mini-label">02 / INFORMATION</span>
+                        <h5 class="fw-bold text-white mt-1">Information Dashboard</h5>
+                        <p class="text-secondary fs-7">A concept for displaying organized information in a clear, useful way.</p>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <span class="tag-badge">Data</span>
+                        <span class="tag-badge">UI Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="project-preview-box mb-3 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-list-check fs-1 text-secondary"></i>
+                        </div>
+                        <span class="card-mini-label">03 / SYSTEMS</span>
+                        <h5 class="fw-bold text-white mt-1">Student Task Organizer</h5>
+                        <p class="text-secondary fs-7">A planned concept for organizing assignments, deadlines, and study goals.</p>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <span class="tag-badge">Planning</span>
+                        <span class="tag-badge">Information Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 05 CONTACT SECTION -->
+<section id="contact" class="py-6">
+    <div class="container">
+        <span class="section-tag text-uppercase">— YOUR TURN</span>
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h2 class="fw-bold display-4 mb-4">
+                    Have an idea?<br>
+                    <span class="text-gradient">Let's talk.</span>
+                </h2>
+                <p class="text-secondary fs-6 mb-4">
+I'm open to learning opportunities, collaboration, and connecting with people who love building useful things.
+                </p>
+                <p class="fw-semibold text-white mb-1">
+                    <a href="mailto:shaza@example.com" class="text-gradient text-decoration-none">shaza@example.com <i class="fa-solid fa-arrow-up-right-from-square fs-7"></i></a>
+                </p>
+                <small class="text-secondary"><i class="fa-solid fa-location-dot me-1"></i> Dakahlia, Egypt</small>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="custom-card p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-uppercase card-mini-label">YOUR NAME</label>
+                            <input type="text" class="form-control custom-input" placeholder="How should I call you?">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-uppercase card-mini-label">YOUR EMAIL</label>
+                            <input type="email" class="form-control custom-input" placeholder="you@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-uppercase card-mini-label">MESSAGE</label>
+                            <textarea class="form-control custom-input" rows="4" placeholder="Tell me what's on your mind..."></textarea>
+                        </div>
+                        <button type="button" class="btn btn-gradient w-100">Prepare email <i class="fa-solid fa-arrow-right-long ms-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 border-top border-secondary border-opacity-10 text-center">
+    <div class="container">
+        <p class="text-secondary fs-7 mb-0">Designed for Shaza Mohamed &copy; 2026. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
